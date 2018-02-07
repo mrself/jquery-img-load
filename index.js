@@ -16,7 +16,7 @@ module.exports = function() {
 
 				$img.each(function(index, el) {
 					if (this.complete) checkLoaded();
-					else this.onload = checkLoaded;
+					else $(this).on('load', checkLoaded);
 				});
 				function checkLoaded() {
 					if (countImg == ++countLoadedImgs) options.callback($img);
